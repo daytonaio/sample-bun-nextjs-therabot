@@ -1,0 +1,38 @@
+{
+  "name": "TheraBot Development Container",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.autoSave": "onWindowChange",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "javascript.validate.enable": true,
+        "typescript.tsdk": "./node_modules/typescript/lib"
+      },
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "dbaeumer.vscode-eslint",
+        "dsznajder.es7-react-js-snippets",
+        "formulahendry.auto-rename-tag",
+        "bradlc.vscode-tailwindcss",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "oven.bun-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "bun clean || true && rm -rf node_modules .next bun.lockb || true && bun install",
+  "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "none"
+    }
+  }
+}
